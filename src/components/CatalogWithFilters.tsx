@@ -1,5 +1,6 @@
 "use client";
-import { flowers, FlowerProduct } from "./FlowerCatalog";
+
+import { FlowerProduct, flowers } from "./FlowerCatalog";  // Добавлен импорт flowers
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -11,7 +12,6 @@ import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { flowers } from "./FlowerCatalog";
 
 // Определяем типы для фильтров
 type PriceRange = [number, number];
