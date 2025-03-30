@@ -5,6 +5,14 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { usePathname } from "next/navigation";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
+// Вспомогательная функция для получения полного пути к изображению
+const getImagePath = (path: string) => {
+  return `${BASE_PATH}${path}`;
+};
+
 const currentYear = new Date().getFullYear();
 
 export function Footer() {
@@ -25,7 +33,7 @@ export function Footer() {
           {/* Логотип и краткое описание */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Image src="/images/logo.png" alt="Anemon Flowers" width={40} height={40} className="h-10 w-auto" />
+              <Image src={getImagePath("/images/logo.png")} alt="Anemon Flowers" width={40} height={40} className="h-10 w-auto" />
               <span className="text-xl font-bold text-[#d5ce5e]">Anemon</span>
             </Link>
             <p className="text-gray-400 text-sm mb-4">
