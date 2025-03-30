@@ -14,6 +14,14 @@ import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/components/Cart";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
+// Вспомогательная функция для получения полного пути к изображению
+const getImagePath = (path: string) => {
+  return `${BASE_PATH}${path}`;
+};
+
 // Компонент секции-превью для каталога с самыми популярными букетами
 function CatalogPreview() {
   const { addToCart } = useCart();
@@ -75,7 +83,7 @@ function CatalogPreview() {
               </div>
               <div className="relative h-64 w-full">
                 <Image
-                  src={bouquet.image}
+                  src={getImagePath(bouquet.image)}
                   alt={bouquet.name}
                   fill
                   className="object-cover"
@@ -157,7 +165,7 @@ function GalleryPreview() {
             >
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity z-10"></div>
               <Image
-                src={image.image}
+                src={getImagePath(image.image)}
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"

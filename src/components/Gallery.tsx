@@ -10,6 +10,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
+// Вспомогательная функция для получения полного пути к изображению
+const getImagePath = (path: string) => {
+  return `${BASE_PATH}${path}`;
+};
+
 export type GalleryImage = {
   id: number;
   src: string;
@@ -91,7 +99,7 @@ export function Gallery() {
                 <span className="text-white text-lg font-medium">Открыть</span>
               </div>
               <Image
-                src={image.src}
+                src={getImagePath(image.src)}
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -112,7 +120,7 @@ export function Gallery() {
             </DialogHeader>
             <div className="relative h-[60vh] w-full my-4">
               <Image
-                src={selectedImage.src}
+                src={getImagePath(selectedImage.src)}
                 alt={selectedImage.alt}
                 fill
                 className="object-contain"

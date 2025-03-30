@@ -10,6 +10,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
+// Вспомогательная функция для получения полного пути к изображению
+const getImagePath = (path: string) => {
+  return `${BASE_PATH}${path}`;
+};
+
 const testimonials = [
   {
     id: 1,
@@ -70,7 +78,7 @@ export function Testimonials() {
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="relative h-12 w-12 rounded-full overflow-hidden">
                         <Image
-                          src={testimonial.image}
+                          src={getImagePath(testimonial.image)}
                           alt={testimonial.name}
                           fill
                           className="object-cover"

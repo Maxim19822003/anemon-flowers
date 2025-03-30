@@ -1,6 +1,6 @@
 "use client";
 
-import { FlowerProduct, flowers } from "./FlowerCatalog";  // Добавлен импорт flowers
+import { FlowerProduct, flowers } from "./FlowerCatalog";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -12,6 +12,9 @@ import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
 
 // Определяем типы для фильтров
 type PriceRange = [number, number];
@@ -55,6 +58,11 @@ export function CatalogWithFilters() {
   // Форматирование цены
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(price);
+  };
+
+  // Вспомогательная функция для получения полного пути к изображению
+  const getImagePath = (path: string) => {
+    return `${BASE_PATH}${path}`;
   };
 
   const handleOpenDialog = (flower: FlowerProduct) => {
@@ -221,7 +229,7 @@ export function CatalogWithFilters() {
               <Card key={flower.id} className="overflow-hidden transition-all hover:shadow-lg border-0 bg-white/90 dark:bg-gray-800">
                 <div className="relative h-64 w-full">
                   <Image
-                    src={flower.image}
+                    src={getImagePath(flower.image)}
                     alt={flower.name}
                     fill
                     className="object-cover"
@@ -272,7 +280,7 @@ export function CatalogWithFilters() {
             </DialogHeader>
             <div className="relative h-64 w-full my-4">
               <Image
-                src={selectedFlower.image}
+                src={getImagePath(selectedFlower.image)}
                 alt={selectedFlower.name}
                 fill
                 className="object-cover rounded-md"

@@ -8,6 +8,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "./Cart";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
 export type FlowerProduct = {
   id: number;
   name: string;
@@ -83,6 +86,11 @@ export function FlowerCatalog() {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(price);
   };
 
+  // Вспомогательная функция для получения полного пути к изображению
+  const getImagePath = (path: string) => {
+    return `${BASE_PATH}${path}`;
+  };
+
   return (
     <section id="catalog" className="py-16 md:py-24 backdrop-blur-sm">
       <div className="container">
@@ -100,7 +108,7 @@ export function FlowerCatalog() {
             <Card key={flower.id} className="overflow-hidden transition-all hover:shadow-lg border-0 bg-white/90 dark:bg-gray-800/80">
               <div className="relative h-64 w-full">
                 <Image
-                  src={flower.image}
+                  src={getImagePath(flower.image)}
                   alt={flower.name}
                   fill
                   className="object-cover"
@@ -142,7 +150,7 @@ export function FlowerCatalog() {
             </DialogHeader>
             <div className="relative h-64 w-full my-4">
               <Image
-                src={selectedFlower.image}
+                src={getImagePath(selectedFlower.image)}
                 alt={selectedFlower.name}
                 fill
                 className="object-cover rounded-md"
