@@ -1,5 +1,5 @@
 "use client";
-
+import { flowers, FlowerProduct } from "./FlowerCatalog";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -41,7 +41,7 @@ const findPriceRange = () => {
 };
 
 export function CatalogWithFilters() {
-  const [selectedFlower, setSelectedFlower] = useState(null);
+  const [selectedFlower, setSelectedFlower] = useState<FlowerProduct | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { addToCart } = useCart();
 
@@ -57,14 +57,12 @@ export function CatalogWithFilters() {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(price);
   };
 
-  // Обработчик для открытия диалога с деталями цветка
-  const handleOpenDialog = (flower) => {
+  const handleOpenDialog = (flower: FlowerProduct) => {
     setSelectedFlower(flower);
     setIsDialogOpen(true);
   };
-
-  // Обработчик добавления в корзину
-  const handleAddToCart = (flower) => {
+  
+  const handleAddToCart = (flower: FlowerProduct) => {
     addToCart({
       id: flower.id,
       name: flower.name,

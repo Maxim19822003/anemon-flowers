@@ -43,9 +43,9 @@ function CatalogPreview() {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(price);
   };
 
-  const handleAddToCart = (bouquet) => {
+  const handleAddToCart = (bouquet: { id: number; name: string; price: number; image: string }) => {
     if (!isMounted) return;
-
+  
     addToCart({
       id: bouquet.id,
       name: bouquet.name,

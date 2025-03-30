@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   distDir: '.next',
+  output: 'export',
+  basePath: '/anemon-flowers',
   experimental: {
     turbo: {
       resolveAlias: {
@@ -18,7 +20,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-    unoptimized: process.env.NODE_ENV !== 'production',
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
