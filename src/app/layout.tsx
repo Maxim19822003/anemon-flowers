@@ -5,6 +5,9 @@ import { CartProvider } from "@/components/Cart";
 import { FloatingCartWidget } from "@/components/FloatingCartWidget";
 import Script from "next/script";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
 // Configure fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +46,7 @@ export default function RootLayout({
         {/* Светлая тема - светлые анемоны */}
         <div
           className="min-h-screen bg-fixed bg-center bg-cover bg-no-repeat dark:hidden"
-          style={{ backgroundImage: 'url("/images/white-anemones.jpg")' }}
+          style={{ backgroundImage: `url("${BASE_PATH}/images/white-anemones.jpg")` }}
         >
           <div className="min-h-screen bg-black/30 transition-colors duration-300">
             <CartProvider>
@@ -56,7 +59,7 @@ export default function RootLayout({
         {/* Темная тема - пурпурные анемоны с темным overlay */}
         <div
           className="hidden dark:block min-h-screen bg-fixed bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: 'url("/images/purple-anemones.jpg")' }}
+          style={{ backgroundImage: `url("${BASE_PATH}/images/purple-anemones.jpg")` }}
         >
           <div className="min-h-screen bg-black/70 transition-colors duration-300">
             <CartProvider>
