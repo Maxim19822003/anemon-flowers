@@ -32,21 +32,21 @@ const testimonials = [
     name: "Михаил Петров",
     role: "Новый клиент",
     testimonial: "Недавно заказал букет для жены на годовщину. Был приятно удивлен скоростью доставки и качеством цветов. Букет простоял свежим больше недели! Обязательно буду заказывать снова.",
-    image: "/images/happy-customer2.jpg" // Используем существующее изображение
+    image: "/images/happy-customer2.jpg"
   },
   {
     id: 3,
     name: "Анна Кузнецова",
     role: "Корпоративный клиент",
     testimonial: "Наша компания регулярно заказывает цветы для офиса и мероприятий. Anemon всегда предоставляет отличный сервис и прекрасные композиции. Рекомендую всем!",
-    image: "/images/happy-customer3.jpg" // Повторно используем существующее изображение
+    image: "/images/happy-customer3.jpg"
   },
   {
     id: 4,
     name: "Дмитрий Иванов",
     role: "Постоянный клиент",
     testimonial: "Уже третий год заказываю цветы только в этом магазине. Всегда помогают выбрать идеальный букет под любой случай. Качество цветов и обслуживание на высшем уровне!",
-    image: "/images/happy-customer4.jpg" // Используем существующее изображение
+    image: "/images/happy-customer4.jpg"
   }
 ];
 
@@ -74,7 +74,7 @@ export function Testimonials() {
           <CarouselContent>
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                <Card className="h-full dark:bg-gray-800 border-0">
+                <Card className="h-full dark:bg-gray-800 border-0 bg-white/80">
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="relative h-12 w-12 rounded-full overflow-hidden">
@@ -91,7 +91,7 @@ export function Testimonials() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <p className="text-white/80 dark:text-gray-300 italic">"{testimonial.testimonial}"</p>
+                      <p className="text-gray-700 dark:text-gray-300 italic">"{testimonial.testimonial}"</p>
                     </div>
                   </CardContent>
                 </Card>
