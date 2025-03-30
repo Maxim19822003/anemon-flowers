@@ -29,12 +29,17 @@ export function Navbar() {
   const { totalItems, openCart } = useCart();
   const pathname = usePathname();
 
-  // Определить, нужно ли добавлять хэш к ссылке, если находимся не на главной странице
-  const getHref = (href: string) => {
-    if (href.startsWith('/#') && pathname !== '/') {
-      return '/' + href;
+  // Функция для прокрутки к разделу при клике
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes('#')) {
+      const sectionId = href.split('#')[1];
+      const section = document.getElementById(sectionId);
+      
+      if (section) {
+        e.preventDefault();
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-    return href;
   };
 
   return (
@@ -50,15 +55,11 @@ export function Navbar() {
           {navigationLinks.map((link) => (
             <Link
               key={link.title}
-              href={getHref(link.href)}
+              href={link.href}
               className="text-sm font-medium transition-colors hover:text-[#e1da68] dark:hover:text-[#d5ce5e]"
               prefetch={link.href === "/catalog"}
               aria-label={link.title}
-              onClick={(e) => {
-                if (link.href === "/catalog") {
-                  console.log("Navigating to catalog");
-                }
-              }}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.title}
             </Link>
@@ -97,15 +98,11 @@ export function Navbar() {
                 {navigationLinks.map((link) => (
                   <Link
                     key={link.title}
-                    href={getHref(link.href)}
+                    href={link.href}
                     className="text-gray-800 text-sm font-medium transition-colors hover:text-[#50714d] dark:text-white dark:hover:text-[#d5ce5e]"
                     prefetch={link.href === "/catalog"}
                     aria-label={link.title}
-                    onClick={(e) => {
-                      if (link.href === "/catalog") {
-                        console.log("Navigating to catalog from mobile menu");
-                      }
-                    }}
+                    onClick={(e) => handleNavClick(e, link.href)}
                   >
                     {link.title}
                   </Link>
