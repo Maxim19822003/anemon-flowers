@@ -4,6 +4,7 @@ const nextConfig = {
   distDir: '.next',
   output: 'export',
   basePath: '/anemon-flowers',
+  assetPrefix: '/anemon-flowers/',  // Добавлено для корректной загрузки статических ресурсов
   experimental: {
     turbo: {
       resolveAlias: {
