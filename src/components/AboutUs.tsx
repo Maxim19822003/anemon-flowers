@@ -36,7 +36,7 @@ export function AboutUs() {
             <div className="bg-white/30 dark:bg-gray-700/70 p-6 rounded-lg backdrop-blur-sm">
               <h3 className="text-xl font-semibold text-[#e1da68] mb-4">Наша история</h3>
               <p className="text-gray-800 dark:text-gray-100 mb-4 leading-relaxed">
-                С 2015 года <span className="text-[#50714d] dark:text-[#e1da68] font-medium">Anemon</span> создает уникальные цветочные композиции, которые дарят радость и восхищение.
+                С 2024 года <span className="text-[#50714d] dark:text-[#e1da68] font-medium">Anemon</span> создает уникальные цветочные композиции, которые дарят радость и восхищение.
               </p>
               <p className="text-gray-800 dark:text-gray-100 leading-relaxed">
                 Мы верим, что каждый букет — это произведение искусства, способное выразить ваши самые искренние чувства и эмоции.
