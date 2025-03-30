@@ -1,12 +1,20 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export function Hero() {
+  const router = useRouter();
+
   const scrollToCatalog = () => {
+    // Сначала попробуем найти каталог на текущей странице
     const catalogSection = document.getElementById("catalog");
     if (catalogSection) {
+      // Если каталог есть на странице, прокручиваем к нему
       catalogSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Если каталога нет на текущей странице, перенаправляем на страницу каталога
+      router.push("/catalog");
     }
   };
 
