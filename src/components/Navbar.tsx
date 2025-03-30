@@ -8,6 +8,14 @@ import { useCart } from "./Cart";
 import { ThemeToggle } from "./ThemeToggle";
 import { usePathname } from "next/navigation";
 
+// Константа для базового пути
+const BASE_PATH = '/anemon-flowers';
+
+// Вспомогательная функция для получения полного пути к изображению
+const getImagePath = (path: string) => {
+  return `${BASE_PATH}${path}`;
+};
+
 const navigationLinks = [
   { title: "Главная", href: "/" },
   { title: "Каталог", href: "/catalog" },
@@ -33,7 +41,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-[#50714d] text-white shadow-md dark:bg-[#3a543a]">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/images/logo.png" alt="Anemon Flowers" width={40} height={40} className="h-10 w-auto" />
+          <Image src={getImagePath("/images/logo.png")} alt="Anemon Flowers" width={40} height={40} className="h-10 w-auto" />
           <span className="text-xl font-bold">Anemon</span>
         </Link>
 
